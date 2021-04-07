@@ -1,12 +1,15 @@
+// Pair Programming - W2D3
+// Rashad Bayram and David Martinez
+
 const chai = require('chai');
 const assert = chai.assert;
 
-const wordSearch = require('../wordsearch.js')
+const wordSearch = require('../wordsearch.js');
 
 describe("#wordSearch()", function() {
   it("should return false if the word is not present", function() {
     const result = wordSearch([
-      ['A', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['A', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'], // [AWCFQUAL]
       ['S', 'E', 'I', 'N', 'F', 'E', 'L', 'D'],
       ['Y', 'F', 'C', 'F', 'Q', 'U', 'A', 'L'],
       ['H', 'M', 'J', 'T', 'E', 'V', 'R', 'G'],
@@ -15,7 +18,7 @@ describe("#wordSearch()", function() {
       ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-    ], 'FRANK')
+    ], 'FRANK');
 
     assert.isFalse(result);
   });
@@ -31,8 +34,16 @@ describe("#wordSearch()", function() {
       ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-    ], 'SEINFELD')
+    ], 'SEINFELD');
 
     assert.isTrue(result);
+  });
+
+  it("should return false if the array is empty", function() {
+    const result = wordSearch([
+      [],
+    ], 'BOBBY');
+
+    assert.isFalse(result);
   });
 });
